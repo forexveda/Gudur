@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EventsModel>
+<div class="r-upcoming-container">
+    <div class="card shadow-sm">
+        <div class="card-header r-gallery-title">
+            Upcoming Events
+        </div>
+        <div class="card-body">
+            @foreach (var item in Model.Take(2))
+            {
+                <div class="r-upcoming-sec">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 r-upcoming-img">
+                            @if (string.IsNullOrEmpty(@item.eventimage))
+                            {
+                                <img src="http://rotaryclubgudur.org/images/eventdefaultimage.png" class="card-img">
+                            }
+                            else
+                            {
+                                <img src="@item.eventimage" class="card-img">
+                            }
+                        </div>
+                        <div class="col-md-9 r-upcoming-info">
+                            <p class="r-upcoming-title">@item.eventtitle</p>
+                            <p class="r-upcoming-meta">@item.venue</p>
+                            <p class="r-upcoming-meta">@Convert.ToDateTime(@item.date).ToString("dd/MM/yyyy") @item.time</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@*<div class="r-upcoming-container">
+        <div class="r-sub-heading">Upcoming Events</div>
+        @foreach (var item in Model.Take(2))
+        {
+            <div class="r-upcoming-sec">
+                <div class="row no-gutters">
+                    <div class="col-md-3 r-upcoming-img">
+                        <img src="@item.eventimage" class="card-img">
+                    </div>
+                    <div class="col-md-9 r-upcoming-info">
+                        <p class="r-upcoming-title">@item.eventtitle</p>
+                        <p class="r-upcoming-meta">@item.venue</p>
+                        <p class="r-upcoming-meta">@Convert.ToDateTime(@item.date).ToString("MM/dd/yyyy") @item.time</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@

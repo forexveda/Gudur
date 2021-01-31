@@ -1,0 +1,236 @@
+﻿@model IEnumerable<MemberModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="r-members-container">
+    <div class="r-main-heading d-flex justify-content-center"><span>Board Members</span></div>
+    <div class="r-members-sec">
+        <div class="row row-eq-height">
+            @{ int i = 1; bool insert = false;}
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="@item.image" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">@item.firstname @item.lastname</p>
+                            <p class="r-members-position">@item.position</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@*<div class="r-members-container">
+        <div class="r-main-heading">Board Members</div>
+        <div class="r-members-sec">
+            <div class="row row-eq-height">
+
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurraghavareddygs.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. G.S. Raghava Reddy</p>
+                            <p class="r-members-position">President</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudursreedharreddyb.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. B. Sridhar Reddy</p>
+                            <p class="r-members-position">Secretary</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurkrishnaiahpv.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. P.V. Krishnaiah</p>
+                            <p class="r-members-position">Immediate Past President</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurjanakiramreddy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. P. Janakiram Reddy</p>
+                            <p class="r-members-position">Club Trainer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurmunirajap.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. P. Muniraja</p>
+                            <p class="r-members-position">Vice President</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurkiranchakravarthy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. A. Kiran Chakravarthy</p>
+                            <p class="r-members-position">Vice President</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurravindrareddyp.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. P. Ravindra Reddy</p>
+                            <p class="r-members-position">Joint Secretary</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurmanoharreddya.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. A. Manohar Reddy</p>
+                            <p class="r-members-position">Joint Secretary</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudursureshreddyt.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. T. Suresh Reddy</p>
+                            <p class="r-members-position">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurtvravikmar.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Sergeant at Arms</p>
+                            <p class="r-members-position">Rtn. T.V. Ravi Kumar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurdasararadharamreddy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. Dasaradharami Reddy P.</p>
+                            <p class="r-members-position">Chairman - TRF</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurashokchakravarthy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. S.V. Ashok Chakravarthi</p>
+                            <p class="r-members-position">Chairman - Service Projects</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurraghuramireddy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. P. Raghurami Reddy</p>
+                            <p class="r-members-position">Club Co-ordinator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurhariprasadp.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">P. Hari Prasad</p>
+                            <p class="r-members-position">Chairman - Club Admin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudursyamasundararao.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. B. Syam Sundar Rao</p>
+                            <p class="r-members-position">Chairman - Public Relation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurlvramanababu.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. L.V. Ramana Babu</p>
+                            <p class="r-members-position">Chairman - Public Image</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurrathnamnv.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. N.V. Rathnam</p>
+                            <p class="r-members-position">Chairman - WINS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurdayakarreddy.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. M. Dayakar Reddy</p>
+                            <p class="r-members-position">Chairman - Pulse Polio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurdrnagendraprasad.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. S.V. Nagendra Prasad</p>
+                            <p class="r-members-position">Chairman - Membership Development</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="https://rmb.vedam-it.com/uploads/profile/gudurbalakrishnamraju.jpg" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">Rtn. N. Balakrishnam Raju</p>
+                            <p class="r-members-position">Chairman - Literacy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+

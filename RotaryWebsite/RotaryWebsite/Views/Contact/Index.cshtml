@@ -1,0 +1,93 @@
+﻿@model RotaryWebsite.Controllers.ContactUsModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="r-contact-container">
+    <div class="r-main-heading d-flex justify-content-center"><span>Contact Us</span></div>
+    <div class="r-contact-sec">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow-sm r-contact">
+                    <div class="card-header r-contact-title"> Contact Form </div>
+                    @if (ViewBag.sucess != null)
+                    {
+                        <h2>@ViewBag.sucess</h2>
+                    }
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="card-body r-gallery-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Your Name" })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Phone" })
+                                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", placeholder = "Subject" })
+                                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", placeholder = "Comment" })
+                                        @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LepD_oZAAAAANjHC2F7iAhZ5d36L2UZGYQD18v3"></div>
+                                </div>
+                            </div>
+                            <input type="submit" id="comment-submit" class="btn btn-primary float-right" value="Send Message">
+                        </div>
+
+                        <script type="text/javascript">
+                            var onloadCallback = function () {
+                                alert("grecaptcha is ready!");
+                            };
+                        </script>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm r-contact">
+                    <div class="card-header r-contact-title"> Contact Info </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p class="mb-1 text-uppercase font-weight-bold">Address</p>
+                            <p class="mb-1">
+                                Alluru Audisesha Reddy Rotary Bhavan,
+                                Near Krishnadas Matam Road, Varadha Nagar,
+                                Society Centre, Gudur
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="mb-1 text-uppercase font-weight-bold">Phone</p>
+                            <p class="mb-1">+91 7036152445</p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="mb-1 text-uppercase font-weight-bold">Email</p>
+                            <p class="mb-1">info@rotaryclubgudur.org</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

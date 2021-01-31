@@ -1,0 +1,121 @@
+﻿@model IEnumerable<AlbumModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+
+    <div class="r-gallery-container">
+        <div class="r-main-heading d-flex justify-content-center">
+            <span>Photo Gallery</span>
+        </div>
+        <div class="row r-gallery-sec">
+            <div class="col-md-3">
+                @{
+                    var className = string.Empty;
+                    int i = 0;
+                }
+
+                <ul class="r-gallery-categories">
+                    <li class="r-gallery-cat active" data-cat="all">All</li>
+                    @foreach (var item in Model)
+                    {
+                        if (i == 0)
+                        {
+                            className = ".album_" + item.albumId;
+                            @*<li><span class="rg-filter-item" data-filter=".album_@item.albumId">@item.albumname</span></li>*@
+                            <li class="r-gallery-cat" data-cat="album_@item.albumId">@item.albumname</li>
+                        }
+                        else
+                        {
+                            <li class="r-gallery-cat" data-cat="album_@item.albumId">@item.albumname</li>
+                            @*<li><span class="rg-filter-item" data-filter=".album_@item.albumId">@item.albumname</span></li>*@
+                        }
+                    }
+                </ul>
+            </div>
+
+            <div class="col-md-9">
+                <div class="r-gallery-list row">
+                    @foreach (var item in Model)
+                    {
+                        @foreach (var picture in item.Pictures)
+                        {
+                            <div class="col-6 col-md-3 r-gallery-item album_@item.albumId">
+                                <a href="@picture.pictureurl" data-lightbox="gallery">
+                                    <img src="@picture.pictureurl" class="img-thumbnail" />
+                                </a>
+                            </div>
+                        }
+                    }
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    @*<section class="full-section categories-section">
+            <div class="container">
+                <h3 class="section-title" style="margin-bottom: 30px;">Photo Gallery</h3>
+                <div class="rg-container row">
+                    <ul id="rg-filter" class="col-md-3">
+                        @{
+                            var className = string.Empty;
+                            int i = 0;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            if (i == 0)
+                            {
+                                className = ".album_" + item.albumId;
+                                <li><span class="rg-filter-item" data-filter=".album_@item.albumId">@item.albumname</span></li>
+                            }
+                            else
+                            {
+                                <li><span class="rg-filter-item" data-filter=".album_@item.albumId">@item.albumname</span></li>
+                            }
+                        }
+                    </ul>
+
+                    <div id="rg-list" class="col-md-9 gallery">
+
+                        @foreach (var item in Model)
+                        {
+                            @foreach (var picture in item.Pictures)
+                            {
+                                <div class="rg-item album_@item.albumId" href="@picture.pictureurl" rel="rg[gallery]">
+                                    <img src="@picture.pictureurl" alt="" />
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>*@
+
+
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            filterGallery("all")
+            $(".r-gallery-cat").click(function () {
+                $(".r-gallery-cat").removeClass("active");
+                $(this).addClass("active");
+                var category = $(this).attr('data-cat');
+                filterGallery(category)
+            });
+        });
+        function filterGallery(category) {
+            if (category == "all") {
+                $(".r-gallery-item").show(300);
+            } else {
+                $(".r-gallery-item").not('.' + category).hide(100);
+                $(".r-gallery-item").filter('.' + category).show(300);
+            }
+        }
+    </script>
+}

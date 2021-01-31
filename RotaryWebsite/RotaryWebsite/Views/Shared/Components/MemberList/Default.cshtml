@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MemberModel>
+    <div class="r-members-container">
+        <div class="r-main-heading d-flex justify-content-center"><span>Members</span></div>
+        <div class="r-members-sec">
+            <div class="row row-eq-height">
+                @{ int i = 1; bool insert = false;}
+                @foreach (var item in Model)
+                {
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="r-members-img img-thumbnail" src="@item.image" />
+                        <div class="r-members-info">
+                            <p class="r-members-title">@item.firstname @item.lastname</p>
+                            <p class="r-members-position">@item.position</p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    @*<div class="r-members-container">
+            <div class="r-main-heading">Members</div>
+            @{ int i = 1; bool insert = false;}
+            @foreach (var item in Model)
+            {
+                if (i == 1 || insert)
+                {
+                    @:<div class="row">
+                    }
+                    if (i % 4 == 0)
+                    {
+                        insert = true;
+                    }
+                    else
+                    {
+                        insert = false;
+                    }
+                    <div class="col-md-3">
+
+                        <div class="cat-box">
+
+                            <div class="cat-image">
+
+                                <img src="@item.image" class="img-responsive" alt="">
+
+                            </div>
+
+                            <h4 class="cat-title">@item.firstname @item.lastname</h4>
+
+                            <p class="courses-counter">@item.position</p>
+
+                        </div>
+
+                    </div>
+
+                    int r = (i - 4);
+                    if (r % 4 == 0 || (i - 4) == 0)
+                    {
+                    @:</div>
+                }
+                i = i + 1;
+            }
+        </div>*@

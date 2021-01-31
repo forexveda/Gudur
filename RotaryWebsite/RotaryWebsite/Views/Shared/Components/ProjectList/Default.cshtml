@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjectsModel>
+
+@foreach (var item in Model.Take(2))
+{
+    <div class="card shadow-sm r-service-sec">
+        <div class="card-header r-service-title">@item.title  </div>
+        <div class="card-body r-service-body">
+            <div class="r-service-img">
+                @{
+                    string imgPath = "images/basi40586.jpg";
+                    if (item.ProjectImageModel.Count > 0)
+                    {
+                        imgPath = item.ProjectImageModel[0].imageurl;
+                    }
+
+                }
+                <img class="img-thumbnail" src="@imgPath">
+            </div>
+            <div class="r-service-info">
+                <p class="text-justify">
+                    @if (item.Description.Count() > 500)
+                    {
+                        @item.Description.Substring(0, 500)<span>...</span>
+                    }
+                    else
+                    {@item.Description}
+                </p>
+            </div>
+            <div class="r-service-btn text-right mt-3">
+                @Html.ActionLink("Read More", "Index", "Projects", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}
+
+@*@foreach (var item in Model.Take(3))
+    {
+        <div class="card shadow-sm r-service-sec">
+            <div class="card-body r-service-body">
+                <div class="r-service-img">
+                    @{
+                        string imgPath = "images/basi40586.jpg";
+                        if (item.ProjectImageModel.Count > 0)
+                        {
+                            imgPath = item.ProjectImageModel[0].imageurl;
+                        }
+
+                    }
+                    <img class="img-thumbnail" src="@imgPath">
+                </div>
+                <div class="r-service-info">
+                    <div class="r-service-title">@item.title </div>
+                    <hr class="m_bottom_15">
+                    <p class="text-justify">
+                        @item.Description
+                    </p>
+                </div>
+                <div class="r-service-btn text-right mt-3">
+                    @Html.ActionLink("Read More", "Index", "Projects", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    }*@

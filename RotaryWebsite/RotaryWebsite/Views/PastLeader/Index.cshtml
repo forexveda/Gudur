@@ -1,0 +1,397 @@
+﻿@model IEnumerable<PastLeadersModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="r-leaders-container">
+    <div class="r-main-heading d-flex justify-content-center"><span> Past Leaders of Rotary Club Gudur</span></div>
+    <div class="r-leaders-sec">
+        <table class="r-leaders">
+            <tbody>
+                <tr>
+                    <th>Year</th>
+                    <th>President</th>
+                    <th>Secretary</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Years</td>
+                        <td>@item.PRESIDENT</td>
+                        <td>@item.SECRETORY</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@*<div class="r-leaders-container">
+        <div class="r-main-heading"> Past Leaders of Rotary Club </div>
+        <div class="r-leaders-sec">
+            <table class="r-leaders">
+                <tbody>
+                    <tr>
+                        <th>YEAR</th>
+                        <th>PRESIDENT</th>
+                        <th>SECRETORY</th>
+                    </tr>
+
+                    <tr>
+                        <td>2019-2020</td>
+                        <td>Rtn P.V. Krishnaiah</td>
+                        <td>Rtn V. Venkateswarlu Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2018-2019</td>
+                        <td>Rtn P. Hariprasad</td>
+                        <td>Rtn C. Ramakrishna Swaroop </td>
+                    </tr>
+
+                    <tr>
+                        <td>2017-2018</td>
+                        <td>Rtn P. Muniraja</td>
+                        <td>Rtn N. Balakrishnam Raju </td>
+                    </tr>
+
+                    <tr>
+                        <td>2016-2017</td>
+                        <td>Rtn N. Gopal Rao</td>
+                        <td>Rtn P. Hariprasad </td>
+                    </tr>
+
+                    <tr>
+                        <td>2015-2016</td>
+                        <td>Rtn S.V. Ashok Chakravarthy</td>
+                        <td>Rtn P. Muniraja </td>
+                    </tr>
+
+                    <tr>
+                        <td>2014-2015</td>
+                        <td>Rtn P. Raghurami Reddy</td>
+                        <td>Rtn N. Gopal Rao </td>
+                    </tr>
+
+                    <tr>
+                        <td>2013-2014</td>
+                        <td>Rtn B. Syamasundara Rao</td>
+                        <td>Rtn Y. Chandrasekhar Reddy </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>2012-2013</td>
+                        <td>Rtn K. Mehermani</td>
+                        <td>Rtn P.V. Krishnaiah </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>2011-2012</td>
+                        <td>Rtn M.Dayakar Reddy</td>
+                        <td>Rtn G.S.Raghava Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2010-2011</td>
+                        <td>Rtn Sundararami Reddy .K</td>
+                        <td>Rtn S.V. Ashok Chakravarthy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2009-2010</td>
+                        <td>Rtn P. Rama Krishna Reddy</td>
+                        <td>Rtn B. Syamasundara Rao </td>
+                    </tr>
+
+                    <tr>
+                        <td>2008-2009</td>
+                        <td>Rtn B. Siva Kumar Reddy</td>
+                        <td>Rtn M. Dayakar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2007-2008</td>
+                        <td>Rtn N.V. Ratnam</td>
+                        <td>Rtn P. Raghurami Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2006-2007</td>
+                        <td>Rtn S.V. Nagendra Prasad</td>
+                        <td>Rtn N.V. Ratnam </td>
+                    </tr>
+
+                    <tr>
+                        <td>2005-2006</td>
+                        <td>Rtn K. Muni Girish</td>
+                        <td>Rtn B. Sivakumar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2004-2005</td>
+                        <td>Rtn B. Subrahmanyam Reddy</td>
+                        <td>Rtn S.V. Nagendra Prasad </td>
+                    </tr>
+
+                    <tr>
+                        <td>2003-2004</td>
+                        <td>Rtn Dr. C. Janardhana Reddy</td>
+                        <td>Rtn P. Rama Krishna Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2002-2003</td>
+                        <td>Rtn B. Hanumantha Rao</td>
+                        <td>Rtn A. Kiran Chakravarthy </td>
+                    </tr>
+
+                    <tr>
+                        <td>2001-2002</td>
+                        <td>Rtn B. Dasaradharami Reddy</td>
+                        <td>Rtn K. Muni Girish </td>
+                    </tr>
+
+                    <tr>
+                        <td>2000-2001</td>
+                        <td>Rtn Sd. ghouse Mohiddin</td>
+                        <td>Rtn V. Chandra Mohan </td>
+                    </tr>
+
+                    <tr>
+                        <td>1999-2000</td>
+                        <td>Rtn P. Janakiram Reddy</td>
+                        <td>Rtn B. Dasaradharami Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1998-1999</td>
+                        <td>Rtn M. Venku Reddy</td>
+                        <td>Rtn P. Sreeramulu </td>
+                    </tr>
+
+                    <tr>
+                        <td>1997-1998</td>
+                        <td>Rtn B. Surendra Reddy</td>
+                        <td>Rtn D. Devaki Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1996-1997</td>
+                        <td>Rtn D. Audisesha Reddy</td>
+                        <td>Rtn D. Bhaskar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1995-1996</td>
+                        <td>Rtn K.R. Reddy</td>
+                        <td>Rtn M. venku Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1994-1995</td>
+                        <td>Rtn D. Devaki Reddy</td>
+                        <td>Rtn K. Mehermani </td>
+                    </tr>
+
+                    <tr>
+                        <td>1993-1994</td>
+                        <td>Rtn A.S.N. Raju</td>
+                        <td>Rtn K.R. Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1992-1993</td>
+                        <td>Rtn M. Sreerama Moorthy</td>
+                        <td>Rtn Y. Gopal Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1991-1992</td>
+                        <td>Rtn B. Venugopal Reddy</td>
+                        <td>Rtn Dinesh Kumar Bansal </td>
+                    </tr>
+
+                    <tr>
+                        <td>1990-1991</td>
+                        <td>Rtn Y. Vidya Sagar</td>
+                        <td>Rtn V. Sreenivasulu Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1989-1990</td>
+                        <td>Rtn Y. Gopal Reddy</td>
+                        <td>Rtn M. Sreerama Moorthy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1988-1989</td>
+                        <td>Rtn K. V. Nagaraja Sarma</td>
+                        <td>Rtn K.V. Brahmam </td>
+                    </tr>
+
+                    <tr>
+                        <td>1987-1988</td>
+                        <td>Rtn P.N. Madan Mohan</td>
+                        <td>Rtn A.S.N. Raju </td>
+                    </tr>
+
+                    <tr>
+                        <td>1986-1987</td>
+                        <td>Rtn S. Ramamohan Rao</td>
+                        <td>Rtn K.V. Nagaraja Sarma </td>
+                    </tr>
+
+                    <tr>
+                        <td>1985-1986</td>
+                        <td>Rtn P. Pola Reddy</td>
+                        <td>Rtn N. Chandra Kumar Dugar </td>
+                    </tr>
+
+                    <tr>
+                        <td>1984-1985</td>
+                        <td>Rtn P. Malakonda Reddy</td>
+                        <td>Rtn K.V. Nagaraja Sarma </td>
+                    </tr>
+
+                    <tr>
+                        <td>1983-1984</td>
+                        <td>Rtn A. Vijaya Kumar</td>
+                        <td>Rtn N. Chandra kumar Dugar </td>
+                    </tr>
+
+                    <tr>
+                        <td>1982-1983</td>
+                        <td>Rtn C. Ramakrishna</td>
+                        <td>Rtn A. Kondaiah </td>
+                    </tr>
+
+                    <tr>
+                        <td>1981-1982</td>
+                        <td>Rtn S.V. Maheedhar Reddy</td>
+                        <td>Rtn Dr. S.V. Narasimhulu </td>
+                    </tr>
+
+                    <tr>
+                        <td>1980-1981</td>
+                        <td>Rtn M. Subbarami Reddy</td>
+                        <td>Rtn P. Malakonda Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1979-1980</td>
+                        <td>Rtn N. Tarachand Dugar</td>
+                        <td>Rtn A.S. Vijaya Kumar </td>
+                    </tr>
+
+                    <tr>
+                        <td>1978-1979</td>
+                        <td>Rtn Dr. K. Seetharamaiah</td>
+                        <td>Rtn S.V. Maheedhar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1977-1978</td>
+                        <td>Rtn K.S. Reddy</td>
+                        <td>Rtn B. Nageswara Rao </td>
+                    </tr>
+
+                    <tr>
+                        <td>1976-1977</td>
+                        <td>Rtn A. Shyamasundara Reddy</td>
+                        <td>Rtn G. Sankar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1975-1976</td>
+                        <td>Rtn B. Kalyanaiah</td>
+                        <td>Rtn B. Venugopal Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1974-1975</td>
+                        <td>Rtn G.D. Reddy</td>
+                        <td>Rtn Ramamoorthy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1973-1974</td>
+                        <td>Rtn E.S. Reddy</td>
+                        <td>Rtn Y. Venugopal Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1972-1973</td>
+                        <td>Rtn A. Sreenivasan</td>
+                        <td>Rtn K. Subrahmanyam </td>
+                    </tr>
+
+                    <tr>
+                        <td>1971-1972</td>
+                        <td>Rtn Dr. V. Bhujagendra Rao</td>
+                        <td>Rtn B. Kalyanaiah </td>
+                    </tr>
+
+                    <tr>
+                        <td>1970-1971</td>
+                        <td>Rtn D. Bhaskar Reddy</td>
+                        <td>Rtn B. Kalyanaiah </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>1969-1970</td>
+                        <td>Rtn N. Subba Reddy</td>
+                        <td>Rtn Dr. K. Seetharamaiah </td>
+                    </tr>
+
+                    <tr>
+                        <td>1968-1969</td>
+                        <td>Rtn A. Audisesha Reddy</td>
+                        <td>Rtn G.D. Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1967-1968</td>
+                        <td>Rtn Dr. S. Ramachandra Rao</td>
+                        <td>Rtn P. Chenga Reddy </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>1966-1967</td>
+                        <td>Rtn Dr. B. Krishna Swami</td>
+                        <td>Rtn K.S. Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1965-1966</td>
+                        <td>Rtn P.V. Raghavaiah</td>
+                        <td>Rtn D. Bhaskar Reddy </td>
+                    </tr>
+
+                    <tr>
+                        <td>1964-1965</td>
+                        <td>Rtn K.M.K. Reddy</td>
+                        <td>Rtn P. Pola Reddy </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>1963-1964</td>
+                        <td>Rtn D.S. Reddy</td>
+                        <td>Rtn P. Raghavaiah </td>
+                    </tr>
+
+                    <tr>
+                        <td>1962-1963</td>
+                        <td>Rtn D.S. Reddy</td>
+                        <td>Rtn P. Raghavaiah </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>*@
+

@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row r-project-sec">
+    <div class="col-md-8">
+        <div class="card shadow-sm r-about-sec">
+            <div class="card-header r-about-title"> Welcome To Rotary Club Gudur </div>
+            <div class="card-body r-about-body">
+                <div class="r-about-img">
+                    <img class="img-thumbnail" src="images/club-logo.png">
+                </div>
+                <div class="r-about-info">
+                    <p class="text-justify">
+                        Rotary club of Gudur, one of the oldest club in RID 3160 was provisionally started in the year 1962 and
+
+                        received its charter in the year January 1963. It was the initiative of Dodla Sundarami Reddy which resulted in
+
+                        the formation of the
+
+                        club with some of the elite of Gudur town. The Club was sponsored by Rotary club of Nellore.
+                    </p>
+                    <p class="text-justify">
+                        The Club had members from varying business backgrounds like Mica exports, Finance, Agriculture, Lemon business
+
+                        and from varied professions like Medicine, engineering, law and business administration. Most of the charter
+
+                        members continued their
+
+                        membership in the club till their last breath.
+
+
+                    </p>
+
+
+                </div>
+                <div class="r-about-btn text-right mt-3">
+                   <a class="btn btn-primary" href="/theclub">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="r-service-container">
+            <div class="r-main-heading">
+                <span>Events & Projects</span>
+            </div>
+            @await Component.InvokeAsync("ProjectList")
+
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="r-sidebar-sec">
+            @await Component.InvokeAsync("HomeEventList")
+            <div class="r-upcoming-container mt-3">
+                <div class="card shadow-sm">
+                    <div class="card-header r-gallery-title">
+                        Club Leaders 2020-21
+                    </div>
+                    <div class="card-body">
+                        <div class="card mb-2 shadow-sm">
+                            <img class="r-members-img img-thumbnail" src="images/president.jpg" alt="President" />
+                            <div class="r-members-info">
+                                <p class="r-members-title">Raghava Reddy G.S.</p>
+                                <p class="r-members-position">President</p>
+                            </div>
+                        </div>
+                        <div class="card mb-2 shadow-sm">
+                            <img class="r-members-img img-thumbnail" src="images/secretary.jpg" alt="Secretory" />
+                            <div class="r-members-info">
+                                <p class="r-members-title">Venkata Sridhar Reddy Bandi</p>
+                                <p class="r-members-position">Secretary</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("PhotoGalleryList")
+
+@*<div class="row r-project-sec">
+        <div class="col-md-8">
+            <div class="r-service-container">
+                <div class="r-main-heading">Service Project</div>
+                @await Component.InvokeAsync("ProjectList")
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="r-sidebar-sec">
+                @await Component.InvokeAsync("HomeEventList")
+
+                <div class="r-upcoming-container">
+                    <div class="r-sub-heading">
+                        OUR PROJECTS
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur1.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">SKR Governement College</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur2.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">DNR Community Hall</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur3.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">Alluru Adisesha Reddy Stadium</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur4.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">DRW College</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur5.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">Alluru Adisesha reddy Rotary Bhavan</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur6.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">Tower Clock</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur7.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">Swargadhamam</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-upcoming-sec">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 r-upcoming-img">
+                                <img src="images/gudur8.jpg" class="card-img">
+                            </div>
+                            <div class="col-md-9 r-upcoming-info">
+                                <p class="r-upcoming-title">Mokshadhamam</p>
+                                <p class="r-upcoming-meta">New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @await Component.InvokeAsync("PhotoGalleryList")*@
+

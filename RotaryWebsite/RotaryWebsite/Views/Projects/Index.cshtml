@@ -1,0 +1,245 @@
+﻿@model IEnumerable<ProjectCategoryModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .paginationshow {
+        display: block !important;
+    }
+
+    .paginationhide {
+        display: none !important;
+    }
+</style>
+<div class="r-projects-container">
+    <div class="r-main-heading d-flex justify-content-center">
+        <span>Projects</span>
+    </div>
+    <div class="row r-projects-sec">
+        <div class="col-md-3">
+            <ul class="r-projects-categories">
+                @foreach (var item in Model)
+                {
+                    <li><a id="li_@item.Projecttype.ToString().Replace(" ", "-")@item.projectscategoryid" class="liProjects">@item.Projecttype</a></li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="r-projects-list">
+                @{ int i = 0; bool firstCategory = false;}
+                @foreach (var item in Model)
+                {
+                    if (i == 0)
+                    {
+                        firstCategory = true;
+                    }
+                    else
+                    {
+                        firstCategory = false;
+
+                    }
+
+                    foreach (var project in item.ProjectsModel)
+                    {
+                        if (firstCategory)
+                        {
+                            <div id="div_@item.Projecttype.Replace(" ","-")@item.projectscategoryid" class="card shadow-sm r-projects-item" style="display:block">
+                                <div class="card-header r-projects-title"> @project.title </div>
+                                <div class="card-body r-projects-body">
+                                    <div class="clearfix">
+                                        <div class="r-projects-img">
+                                            @if (project.ProjectImageModel.Count > 0)
+                                            {
+                                                <a href="@project.ProjectImageModel[0].imageurl" data-lightbox="gallery">
+                                                    <img src="@project.ProjectImageModel[0].imageurl" class="img-thumbnail">
+                                                </a>
+                                            }
+                                        </div>
+                                        <div class="r-projects-info">
+                                            <p class="text-justify mb-3">
+                                                @project.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="r-projects-gallery row mt-3 ">
+                                        @if (project.ProjectImageModel.Count > 1)
+                                        {
+                                            int o = 0;
+                                            @foreach (var images in project.ProjectImageModel)
+                                            {
+                                                if (o == 0)
+                                                {
+                                                    o = o + 1;
+                                                    continue;
+                                                }
+                                                <div class="col-6 col-md-3">
+                                                    <a href="@images.imageurl" data-lightbox="gallery">
+                                                        <img src="@images.imageurl" class="img-thumbnail">
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div id="div_@item.Projecttype.Replace(" ","-")@item.projectscategoryid" class="card shadow-sm r-projects-item" style="display:none">
+                                <div class="card-header r-projects-title"> @project.title </div>
+                                <div class="card-body r-projects-body">
+                                    <div class="clearfix">
+                                        <div class="r-projects-img">
+                                            @if (project.ProjectImageModel.Count > 0)
+                                            {
+                                                <a href="@project.ProjectImageModel[0].imageurl" data-lightbox="gallery">
+                                                    <img src="@project.ProjectImageModel[0].imageurl" class="img-thumbnail">
+                                                </a>
+                                            }
+                                        </div>
+                                        <div class="r-projects-info">
+                                            <p class="text-justify mb-3">
+                                                @project.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="r-projects-gallery row mt-3 ">
+                                        @if (project.ProjectImageModel.Count > 1)
+                                        {
+                                            int o = 0;
+                                            @foreach (var images in project.ProjectImageModel)
+                                            {
+                                                if (o == 0)
+                                                {
+                                                    o = o + 1;
+                                                    continue;
+                                                }
+                                                <div class="col-6 col-md-3">
+                                                    <a href="@images.imageurl" data-lightbox="gallery">
+                                                        <img src="@images.imageurl" class="img-thumbnail">
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                        i = i + 1;
+                    }
+                }
+
+
+            </div>
+            <div class="r-pagination-sec">
+                <div id="r-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/scripts.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.liProjects').on('click', function () {
+            $('[id$=r-pagination]').html('');
+            let id = $(this).attr('id').split('_')[1];
+            $('.r-projects-item').css('display', 'none');
+            let divId = 'div_' + id;
+            $('[id$=' + divId + ']').css('display', 'block');
+
+            $('.r-projects-item').removeClass('paginationhide');
+            $('.r-projects-item').removeClass('paginationshow');
+
+            pagination();
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    pagination();
+    function pagination() {
+        var pageSize = 10;
+        var pageCount = $(".r-projects-item:visible").length / pageSize;
+        if (pageCount <= 1) {
+            $('#r-pagination').hide()
+        } else {
+            $('#r-pagination').show()
+        }
+        for (var i = 0; i < pageCount; i++) {
+            $("#r-pagination").append('<a href="#">' + (i + 1) + '</a>');
+        }
+
+        $("#r-pagination").find("a").first().addClass("active")
+
+        showPageFirst = function (page) {
+            var items = $(".r-projects-item:visible");
+            let i = 1;
+            let maxItemCountPerPage = page * pageSize;
+            let minItemCountPerPage = (page * pageSize) - pageSize;
+
+            $.each(items, function (item) {
+                if (i >= minItemCountPerPage && i <= maxItemCountPerPage) {
+                    $(this).addClass('paginationshow');
+                } else {
+                    $(this).addClass('paginationhide');
+                }
+
+                i = i + 1;
+            });
+        }
+        showPage = function (page) {
+            debugger
+            var allItems = $(".r-projects-item");
+
+            var items = new Array();
+
+            $.each(allItems, function (i, item) {
+                if ($(item).hasClass('paginationshow') || $(item).hasClass('paginationhide')) {
+                    items.push(item);
+                    $(this).removeClass('paginationhide');
+                    $(this).removeClass('paginationshow');
+                }
+            });
+            let i = 0;
+            //if (page == 1) {
+            //    i = 1;
+            //} else {
+            //    i = pageSize + 1;
+            //}
+            let maxItemCountPerPage = page * pageSize;
+            let minItemCountPerPage = (page * pageSize) - pageSize;
+
+            $.each(items, function (item) {
+                if (i >= minItemCountPerPage && i <= maxItemCountPerPage) {
+                    $(this).addClass('paginationshow');
+                } else {
+                    $(this).addClass('paginationhide');
+                }
+
+                i = i + 1;
+            });
+        }
+        //showPage = function (page) {
+        //    $(".r-projects-item").hide();
+        //    $(".r-projects-item").each(function (n) {
+        //        if (n >= pageSize  (page - 1) && n < pageSize  page) {
+        //            $(this).show();
+        //        }
+        //    });
+        //}
+        showPageFirst(1);
+        $("#r-pagination a").click(function () {
+            $("#r-pagination a").removeClass("active");
+            $(this).addClass("active");
+            showPage(parseInt($(this).text()))
+        });
+
+    }
+</script>

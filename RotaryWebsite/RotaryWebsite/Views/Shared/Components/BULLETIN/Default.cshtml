@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BulletinModel>
+
+<div class="r-bulletin-container">
+    <div class="r-main-heading d-flex justify-content-center"><span>Bulletin</span></div>
+    <div class="r-bulletin-sec">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="r-bulletin">
+                    <tbody>
+                        <tr>
+                            <th>BULLETIN</th>
+                            <th>ISSUE MONTH</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="@item.bulletinurl" target="_blank">@item.bulletinname</a></td>
+                                <td style="vertical-align:middle;">@item.bulletindate</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+@*<section class="full-section categories-section">
+        <div class="container">
+            <h3 class="section-title">eBulletin</h3>
+            <div class="section-content">
+                <div class="col-xs-12">
+                    <table id="leaders">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="#" target="_blank">@item.bulletinname</a></td>
+                                <td style="vertical-align:middle;">@item.bulletindate</td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>*@
